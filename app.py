@@ -9,6 +9,11 @@ CORS(app)
 model = joblib.load("model.pkl")
 imputer = joblib.load("imputer.pkl")
 
+# ✅ ADD THIS ROUTE
+@app.route("/")
+def home():
+    return "T-Raksha API Running 🚀"
+
 @app.route("/predict", methods=["POST"])
 def predict():
     try:
