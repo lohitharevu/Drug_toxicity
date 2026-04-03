@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dashboard</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="background"></div>
+
+<div class="center-box">
+
+<h1 class="main-title">Drug Toxicity Prediction</h1>
+
+<input id="logP" placeholder="logP"><br>
+<input id="qed" placeholder="QED"><br>
+<input id="SAS" placeholder="SAS"><br>
+
+<button class="main-btn" onclick="predict()">Predict</button>
+
+<div id="result"></div>
+
+</div>
+
+<script>
+async function predict(){
+
+    const res = await fetch("http://localhost:5000/predict",{
+        method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body:JSON.stringify({
+            logP:parseFloat(logP.value),
+            qed:parseFloat(qed.value),
+            SAS:parseFloat(SAS.value)
+        })
+    });
+
+    const data = await res.json();
+
+    document.getElementById("result").innerHTML = `
+        <h3>${data.prediction}</h3>
+        <p>${data.confidence}%</p>
+        <p>${data.risk}</p>
+    `;
+}
+</script>
+
+</body>
+</html>

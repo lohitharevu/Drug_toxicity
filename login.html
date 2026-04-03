@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="background"></div>
+
+<div class="center-box">
+
+<h2 class="main-title">Login</h2>
+
+<input id="username" placeholder="Username"><br>
+<input id="password" type="password" placeholder="Password"><br>
+
+<button class="main-btn" onclick="login()">Login</button>
+
+<p onclick="goRegister()" style="cursor:pointer;color:#aaa;">Create Account</p>
+
+</div>
+
+<script>
+function login(){
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    if(!user){
+        alert("Create account first!");
+        return;
+    }
+
+    if(
+        user.username === document.getElementById("username").value &&
+        user.password === document.getElementById("password").value
+    ){
+        window.location.href="dashboard.html";
+    } else {
+        alert("Invalid credentials");
+    }
+}
+
+function goRegister(){
+    window.location.href="role.html";
+}
+</script>
+
+</body>
+</html>

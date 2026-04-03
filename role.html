@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Role</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="background"></div>
+
+<div class="center-box">
+
+<h2 class="main-title">Select Role</h2>
+
+<button class="main-btn" onclick="go('doctor')">Doctor</button>
+<button class="main-btn" onclick="go('student')">Student</button>
+<button class="main-btn" onclick="go('researcher')">Researcher</button>
+
+</div>
+
+<script>
+function go(role){
+    localStorage.setItem("role", role);
+    window.location.href="register.html";
+}
+</script>
+
+</body>
+</html>

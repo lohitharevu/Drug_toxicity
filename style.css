@@ -1,0 +1,129 @@
+/* ---------------- GLOBAL ---------------- */
+body {
+    margin: 0;
+    padding: 0;
+    background: #020617;
+    font-family: 'Segoe UI', sans-serif;
+    color: white;
+    overflow: hidden;
+}
+
+/* ---------------- BACKGROUND GRADIENT ---------------- */
+.background {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(-45deg, #020617, #0f172a, #1e293b, #020617);
+    background-size: 400% 400%;
+    animation: gradientBG 12s ease infinite;
+    z-index: -2;
+}
+
+@keyframes gradientBG {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+/* ---------------- FALLING LIGHTS ✨ ---------------- */
+body::before {
+    content: "";
+    position: fixed;
+    width: 200%;
+    height: 200%;
+    background-image: radial-gradient(white 2px, transparent 2px);
+    background-size: 60px 60px;
+    animation: moveLights 15s linear infinite;
+    opacity: 0.25;
+    z-index: -1;
+}
+
+@keyframes moveLights {
+    0% { transform: translateY(-200px); }
+    100% { transform: translateY(200px); }
+}
+
+/* ---------------- CENTER BOX ---------------- */
+.center-box {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    backdrop-filter: blur(10px);
+}
+
+/* ---------------- TITLE ---------------- */
+.main-title {
+    font-size: 70px;
+    font-weight: bold;
+    background: linear-gradient(90deg, #38bdf8, #a78bfa, #34d399);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    text-shadow: 0 0 20px rgba(56,189,248,0.6);
+}
+
+/* ---------------- TAGLINE ---------------- */
+.tagline {
+    font-size: 18px;
+    opacity: 0.8;
+    margin-bottom: 20px;
+}
+
+/* ---------------- BUTTONS ---------------- */
+.main-btn {
+    padding: 12px 30px;
+    margin: 10px;
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+
+    background: linear-gradient(90deg, #ff416c, #1f77b4, #3cb371);
+    background-size: 300% 300%;
+
+    animation: btnGradient 5s infinite;
+
+    box-shadow: 0 0 15px rgba(255,255,255,0.3);
+    transition: 0.3s;
+}
+
+/* Glow hover 💡 */
+.main-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px rgba(255,255,255,0.7),
+                0 0 50px rgba(59,130,246,0.6);
+}
+
+@keyframes btnGradient {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+/* ---------------- INPUTS ---------------- */
+input {
+    margin: 10px;
+    padding: 12px;
+    width: 250px;
+
+    border-radius: 10px;
+    border: none;
+    outline: none;
+
+    background: rgba(255,255,255,0.1);
+    color: white;
+
+    backdrop-filter: blur(10px);
+
+    box-shadow: 0 0 10px rgba(255,255,255,0.1);
+}
+
+/* ---------------- RESULT ---------------- */
+#result {
+    margin-top: 20px;
+    text-align: center;
+}

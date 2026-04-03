@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Register</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="background"></div>
+
+<div class="center-box">
+
+<h2 class="main-title">Register</h2>
+
+<input id="name" placeholder="Name"><br>
+<input id="username" placeholder="Username"><br>
+<input id="password" type="password" placeholder="Password"><br>
+
+<button class="main-btn" onclick="register()">Create</button>
+
+</div>
+
+<script>
+function register(){
+    const user = {
+        name:document.getElementById("name").value,
+        username:document.getElementById("username").value,
+        password:document.getElementById("password").value
+    };
+
+    localStorage.setItem("user", JSON.stringify(user));
+
+    alert("Account created!");
+    window.location.href="login.html";
+}
+</script>
+
+</body>
+</html>
